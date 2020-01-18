@@ -245,6 +245,7 @@ export default function Alamnac(props: IProps) {
       align-items:center;
     }
     .almanac-day--notActive {
+      color:gray;
     }
     .almanac-day--pick {
       border-radius:50%;
@@ -290,7 +291,7 @@ export default function Alamnac(props: IProps) {
                     <div className="almanac-week" key={weekIndex}>
                       {weekData.map((dayData, dayIndex) => (
                         <span
-                          className={`almanac-day ${dayContainerClass}`}
+                          className={`almanac-day ${dayData.isActive||"almanac-day--notActive"} ${dayContainerClass}`}
                           key={dayData.day}
                           data-monthanddate={`${monthIndex},${dayData.day}`}
                         >
