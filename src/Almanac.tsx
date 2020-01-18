@@ -252,16 +252,25 @@ export default function Alamnac(props: IProps) {
       color:white;
       background-color:#456789;
     }
-  `
+  `;
   return (
-    <Almanac data-testid='almanacWrapper'>
+    <Almanac data-testid="almanacWrapper">
       {almanacData.length === 0 ? (
         <div>loading</div>
       ) : (
         <>
           <div className={`input-container ${inputClass}`}>
-            <input type="number" defaultValue={year} id="almanac-input" data-testid="almanac-input"/>
-            <button type="button" data-testid='almanac-showBtn' onClick={() => handleCLickShow()}>
+            <input
+              type="number"
+              defaultValue={year}
+              id="almanac-input"
+              data-testid="almanac-input"
+            />
+            <button
+              type="button"
+              data-testid="almanac-showBtn"
+              onClick={() => handleCLickShow()}
+            >
               SHOW
             </button>
           </div>
@@ -288,12 +297,19 @@ export default function Alamnac(props: IProps) {
                     )}
                   </div>
                   {monthData.map((weekData, weekIndex) => (
-                    <div className="almanac-week" key={weekIndex} data-testid='week'>
+                    <div
+                      className="almanac-week"
+                      key={weekIndex}
+                      data-testid="week"
+                    >
                       {weekData.map((dayData, dayIndex) => (
                         <span
-                          className={`almanac-day ${dayData.isActive||"almanac-day--notActive"} ${dayContainerClass}`}
+                          className={`almanac-day ${dayData.isActive ||
+                            "almanac-day--notActive"} ${dayContainerClass}`}
                           key={dayData.day}
-                          data-monthanddate={`${monthIndex},${dayData.day}`}
+                          data-monthanddate={
+                            dayData.isActive && `${monthIndex},${dayData.day}`
+                          }
                         >
                           {dayData.day}
                         </span>
