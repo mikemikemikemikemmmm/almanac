@@ -7,6 +7,10 @@ export default function Question2(arr: number[]) {
   let testArr: number[] = [];
   let matchArr: IMatch[] = [];
   _arr.forEach((value, index) => {
+    if(value <=0||Math.floor(value) !== value){
+      alert('含有非正整數')
+      return
+    }
     if (testArr[value] !== undefined) {
       //如果已存在testArr
       const indexInMatch = matchArr.findIndex(item => item.value === value);

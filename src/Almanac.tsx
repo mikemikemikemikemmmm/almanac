@@ -254,14 +254,14 @@ export default function Alamnac(props: IProps) {
     }
   `
   return (
-    <Almanac>
+    <Almanac data-testid='almanacWrapper'>
       {almanacData.length === 0 ? (
         <div>loading</div>
       ) : (
         <>
           <div className={`input-container ${inputClass}`}>
-            <input type="number" defaultValue={year} id="almanac-input" />
-            <button type="button" onClick={() => handleCLickShow()}>
+            <input type="number" defaultValue={year} id="almanac-input" data-testid="almanac-input"/>
+            <button type="button" data-testid='almanac-showBtn' onClick={() => handleCLickShow()}>
               SHOW
             </button>
           </div>
@@ -288,7 +288,7 @@ export default function Alamnac(props: IProps) {
                     )}
                   </div>
                   {monthData.map((weekData, weekIndex) => (
-                    <div className="almanac-week" key={weekIndex}>
+                    <div className="almanac-week" key={weekIndex} data-testid='week'>
                       {weekData.map((dayData, dayIndex) => (
                         <span
                           className={`almanac-day ${dayData.isActive||"almanac-day--notActive"} ${dayContainerClass}`}

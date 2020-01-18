@@ -6,9 +6,6 @@ function App() {
   return (
     <div className="App">
       <Almanac/>
-      <div>
-        <button onClick={()=>Question2([7,9,8,9,2,4,7])}>testQusetion2</button>        
-      </div>
     </div>
   );
 }
